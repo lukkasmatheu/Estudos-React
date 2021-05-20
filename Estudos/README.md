@@ -7,3 +7,5 @@
 
 ## Cursos:
 - Rocketseat
+- freecodecamp https://www.freecodecamp.org/
+- digital inovation - https://web.digitalinnovation.one/browse
