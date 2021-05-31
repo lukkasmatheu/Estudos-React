@@ -1,0 +1,8 @@
+/.vscode
+/node_modules
+/.jest-cache
+*.log
+.vscode
+.cache
+.eslintcache
+package-lock.json
