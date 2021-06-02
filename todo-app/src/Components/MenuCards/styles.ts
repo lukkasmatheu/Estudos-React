@@ -25,7 +25,8 @@ export const Card = styled(Link)`
     text-align: center;
     border: 2px solid #e3dfdf;
     border-radius: 4px;
-    transition: 500ms;
+    color: #5e5b5b;
+    transition: 450ms;
     &:hover,
     &:focus {
         border: 2px solid rgba(9, 159, 45, 0.79);

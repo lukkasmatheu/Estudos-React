@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Container} from './styles';
+import MenuCards from '../../Components/MenuCards';
+
 import tarefasConcluidas from '../../assets/concluir.svg';
 import tarefas from '../../assets/newTask.svg';
 import createTask from '../../assets/task.svg';
 import editTask from '../../assets/lista-de-tarefas.svg';
 import listTask from '../../assets/lista-de-controle.svg';
-import MenuCards from '../../Components/MenuCards';
 
 const Home: React.FC = () => {
     useEffect(() => {
