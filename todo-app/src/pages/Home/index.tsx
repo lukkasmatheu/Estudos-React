@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Container} from './styles';
+import React, { useEffect, useState } from 'react';
+import { Main, Footer } from './styles';
 import MenuCards from '../../Components/MenuCards';
 
 import tarefasConcluidas from '../../assets/concluir.svg';
@@ -7,6 +7,7 @@ import tarefas from '../../assets/newTask.svg';
 import createTask from '../../assets/task.svg';
 import editTask from '../../assets/lista-de-tarefas.svg';
 import listTask from '../../assets/lista-de-controle.svg';
+import BoxConteiner from '../../Components/Conteiner';
 
 const Home: React.FC = () => {
     useEffect(() => {
@@ -15,11 +16,10 @@ const Home: React.FC = () => {
 
     const [tasks] = useState<number>(0);
     return (
-        <Container>
-            <header>Lista de Tarefas</header>
-            <main>
+        <BoxConteiner header={'Gerenciador de Tarefas'} >
+            <Main>
                 <MenuCards
-                    to={'/'}
+                    to={'/create'}
                     title={'Criar Nova Tarefa'}
                     image={createTask}
                     description={'Link para pagina de criação de novas taredas'}
@@ -38,20 +38,20 @@ const Home: React.FC = () => {
                         'Link para pagina de edição exclusão de tarefas'
                     }
                 />
-            </main>
-            <footer>
+            </Main>
+            <Footer>
                 <section>
                     <span>
-                        <img src={tarefas} alt="" />
+                        <img src={tarefas} alt="Alerta de quantidade de tarefas criadas" />
                         {tasks} - <b> Tarefas </b>{' '}
                     </span>
                     <span>
-                        <img src={tarefasConcluidas} alt="" />
+                        <img src={tarefasConcluidas} alt="Alerta de quantidade de tarefas concluidas" />
                         {tasks} - <b>Tarefas Prontas </b>{' '}
                     </span>
                 </section>
-            </footer>
-        </Container>
+            </Footer>
+        </BoxConteiner>
     );
 };
 

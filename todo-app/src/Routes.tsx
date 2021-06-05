@@ -1,5 +1,8 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import CreateTask from './pages/CreateTask';
 import Home from './pages/Home';
 
 const Routes: React.FC = () => {
@@ -8,6 +11,7 @@ const Routes: React.FC = () => {
             <Switch>
                 {/* <Route path="/selecao" component={SelecaoTribos} /> */}
                 <Route path="/" exact component={Home} />
+                <Route path="/create" exact component={CreateTask} />
             </Switch>
         </BrowserRouter>
     );

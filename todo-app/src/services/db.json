@@ -1,0 +1,15 @@
+{
+    "task": [
+        {
+            "id": 0,
+            "description": "uma breve descrição da tarefa a ser realizada",
+            "date": "05/06/2021",
+            "complete": false
+        }
+    ],
+    "total": {
+        "active": 0,
+        "completed": 0,
+        "deleted": 0
+    }
+}
