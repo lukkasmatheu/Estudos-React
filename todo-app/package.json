@@ -5,7 +5,11 @@
   "scripts": {
     "start": "webpack-cli serve --mode=development --env development --open --hot",
     "build": "webpack --mode=production --env production --progress",
-    "lint": "eslint src/**/*.{ts,tsx} --quiet --fix"
+    "lint": "eslint src/**/*.{ts,tsx} --quiet --fix",
+    "test": "jest --passWithNoTests --no-cache --verbose --runInBand",
+    "test:watch": "npm run test -- --watch",
+    "test:staged": "npm run test -- --findRelatedTests",
+    "test:ci": "npm run test -- --coverage"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +20,11 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.14.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@types/jest": "^26.0.23",
     "@types/lodash": "^4.14.170",
+    "@types/mocha": "^8.2.2",
     "@types/node": "^15.6.1",
     "@types/react": "^17.0.8",
     "@types/react-dom": "^17.0.5",
@@ -32,11 +40,14 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "fork-ts-checker-webpack-plugin": "^6.2.10",
     "html-webpack-plugin": "^5.3.1",
+    "identity-obj-proxy": "^3.0.0",
     "img-loader": "^4.0.0",
+    "jest": "^27.0.4",
     "node-sass": "^6.0.0",
     "prettier": "^2.3.0",
     "sass-loader": "^11.1.1",
     "style-loader": "^2.0.0",
+    "ts-jest": "^27.0.3",
     "ts-loader": "^9.2.2",
     "ts-node": "^10.0.0",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
@@ -44,6 +55,7 @@
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+    
   },
   "resolutions": {
     "@types/webpack": "^5.28.0"

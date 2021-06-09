@@ -55,8 +55,8 @@ const webpackConfig = (): Configuration => ({
             template: './public/index.html',
         }),
         // DefinePlugin allows you to create global constants which can be configured at compile time
-        //{new DefinePlugin({
-        //"process.env": process.env.production || !process.env.development,
+        // new DefinePlugin({
+        // "process.env": process.env.production || !process.env.development,
         // }),
         new ForkTsCheckerWebpackPlugin({
             // Speeds up TypeScript type checking and ESLint linting (by moving each to a separate process)
