@@ -1,0 +1,29 @@
+{
+  "task": [
+    {
+      "id": 0,
+      "task": "title da tarefa",
+      "description": "uma breve descrição da tarefa a ser realizada",
+      "date": "05/06/2021",
+      "complete": false
+    },
+    {
+      "task": "pkewkmfkewf",
+      "description": "fknkgreklkl",
+      "complete": false,
+      "id": 1
+    },
+    {
+      "task": "wfewgre",
+      "description": "gregee",
+      "date": "2022-05-20",
+      "complete": false,
+      "id": 2
+    }
+  ],
+  "total": {
+    "active": 0,
+    "completed": 0,
+    "deleted": 0
+  }
+}
