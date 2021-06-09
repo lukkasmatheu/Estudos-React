@@ -1,32 +1,21 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    width: 75%;
-    height: 90vh;
-    margin: 0 auto;
-    background: #f6f6f6;
+export const Main = styled.main`
+    
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    header {
-        font-family: 'Raleway';
-        color: #717171;
-        font-size: 2.5rem;
-    }
-    main {
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    footer span {
+    justify-content: space-evenly; 
+`;
+
+export const Footer = styled.footer`
+    span {
         display: flex;
         align-items: center;
         text-align: center;
     }
-    footer span img {
+    span img {
         width: 30px;
         height: 30px;
     }
