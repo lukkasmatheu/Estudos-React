@@ -3,36 +3,35 @@ import styled from 'styled-components';
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    button{
+    button {
         width: 100%;
         height: 2.5rem;
         border: 2px solid #cccccc;
         border-radius: 5px;
         margin-top: 10px;
         &:focus,
-        &:hover{
-            background: #19d646e6 ;
+        &:hover {
+            background: #19d646e6;
             border: 2px solid #19d646e6;
         }
     }
-    textarea{
+    textarea {
         resize: none;
     }
-    input{
+    input {
         height: 2rem;
     }
-    label{
+    label {
         margin-top: 10px;
     }
-    textarea,input{
+    textarea,
+    input {
         padding: 2px;
         border-radius: 5px;
         outline: none;
         border: 2px solid #cccccc;
-        &:focus{
+        &:focus {
             border: 2px solid #19d646e6;
         }
     }
 `;
-
-

@@ -1,12 +1,30 @@
 import React from 'react';
 
+import {TaskProperties} from '../../models/TaskModel';
 
+import ItemList from './ItemTask/index';
 
-const Task: React.FC = () => {
-    return (
-        <li>
+import {TaskList} from './styles';
 
-        </li>
-
-    )
+interface Tasksprop {
+    tasks: TaskProperties[];
 }
+
+const Task: React.FC<Tasksprop> = ({tasks}) => {
+    return (
+        <TaskList>
+            {tasks.map(({id, task, description, date, complete}) => (
+                <ItemList
+                    key={id}
+                    id={id}
+                    task={task}
+                    description={description}
+                    date={date}
+                    complete={complete}
+                />
+            ))}
+        </TaskList>
+    );
+};
+
+export default Task;

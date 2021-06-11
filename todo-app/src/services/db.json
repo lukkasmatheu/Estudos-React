@@ -10,7 +10,7 @@
     {
       "task": "pkewkmfkewf",
       "description": "fknkgreklkl",
-      "complete": false,
+      "complete": true,
       "id": 1
     },
     {
@@ -19,6 +19,20 @@
       "date": "2022-05-20",
       "complete": false,
       "id": 2
+    },
+    {
+      "task": "compras",
+      "description": "Realizar as compras do mes no mercado \nLista de items\n-arroz\n-macarrão\n-feijão\n-azeitona\n-file de frango \n-carvão\n-coca cola\n-cerveija\n-oleo\n-pimenta\n-molho de tomate\n-frios\n-pão caseiro\n-tempero",
+      "date": "2021-07-23",
+      "complete": false,
+      "id": 3
+    },
+    {
+      "task": "tarefa",
+      "description": "tarefa",
+      "date": "2021-07-22",
+      "complete": false,
+      "id": 4
     }
   ],
   "total": {

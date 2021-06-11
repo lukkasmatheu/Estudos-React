@@ -1,4 +1,4 @@
-export interface taskProperties {
+export interface TaskProperties {
     id: number;
     task: string;
     description: string;
