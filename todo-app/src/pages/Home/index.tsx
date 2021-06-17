@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Main, Footer } from './styles';
+import React, {useEffect, useState} from 'react';
+import {Main, Footer} from './styles';
 import MenuCards from '../../Components/MenuCards';
 
 import tarefasConcluidas from '../../assets/concluir.svg';
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
 
     const [tasks] = useState<number>(0);
     return (
-        <BoxConteiner header={'Gerenciador de Tarefas'} >
+        <BoxConteiner header={'Gerenciador de Tarefas'}>
             <Main>
                 <MenuCards
                     to={'/create'}
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
                     description={'Link para pagina de criação de novas taredas'}
                 />
                 <MenuCards
-                    to={'/'}
+                    to={'/list'}
                     title={'Listar Tarefas'}
                     image={listTask}
                     description={'Link para pagina de listagem de tarefas'}
@@ -42,11 +42,17 @@ const Home: React.FC = () => {
             <Footer>
                 <section>
                     <span>
-                        <img src={tarefas} alt="Alerta de quantidade de tarefas criadas" />
+                        <img
+                            src={tarefas}
+                            alt="Alerta de quantidade de tarefas criadas"
+                        />
                         {tasks} - <b> Tarefas </b>{' '}
                     </span>
                     <span>
-                        <img src={tarefasConcluidas} alt="Alerta de quantidade de tarefas concluidas" />
+                        <img
+                            src={tarefasConcluidas}
+                            alt="Alerta de quantidade de tarefas concluidas"
+                        />
                         {tasks} - <b>Tarefas Prontas </b>{' '}
                     </span>
                 </section>

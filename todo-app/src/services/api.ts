@@ -1,16 +1,20 @@
-import axios, { AxiosResponse } from 'axios';
-import { taskProperties } from '../models/TaskModel';
+import axios, {AxiosResponse} from 'axios';
+import {TaskProperties} from '../models/TaskModel';
 
 const path = `http://localhost:5000/task`;
 
-export interface taskResponse {
-    data: taskProperties[];
+export interface TaskResponse {
+    tasks: TaskProperties[];
 }
 
-export const getTasks = (): Promise<AxiosResponse<taskResponse>> => {
+export const getTasks = (): Promise<AxiosResponse<TaskProperties[]>> => {
     return axios.get(path);
 };
 
-export const postTask = (task, description, date): Promise<AxiosResponse<taskResponse>> => {
-    return axios.post(path, { task, description, date, complete: false });
-}
+export const postTask = (
+    task: string,
+    description: string,
+    date: string,
+): Promise<AxiosResponse<TaskResponse>> => {
+    return axios.post(path, {task, description, date, complete: false});
+};
