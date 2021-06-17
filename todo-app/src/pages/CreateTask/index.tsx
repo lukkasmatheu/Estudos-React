@@ -4,6 +4,8 @@ import {useHistory} from 'react-router-dom';
 import {postTask} from '../../services/api';
 import {Form} from './styles';
 
+//TODO : refatorar modelo de form com formik
+
 const CreateTask: React.FC = () => {
     const history = useHistory();
     const [taskDate, setTaskDate] = useState<string>();

@@ -2,7 +2,7 @@ import React from 'react';
 import {Card} from './styles';
 
 export interface MenuCardsProps {
-    to: string;
+    to?: string;
     title?: string;
     image?: string;
     description?: string;

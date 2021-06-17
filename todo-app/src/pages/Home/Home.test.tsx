@@ -1,16 +1,20 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import {Router} from 'react-router-dom';
+import {Router, Route} from 'react-router-dom';
 import Home from './index';
 import {createBrowserHistory} from 'history';
-
-const history = createBrowserHistory();
-
+let history;
+beforeEach(() => {
+    history = createBrowserHistory();
+});
+//TODO : REFATORAR testes
 describe('Home', () => {
     it('should render page home', () => {
         render(
             <Router history={history}>
-                <Home />
+                <Route path="/" exact>
+                    <Home />
+                </Route>
             </Router>,
         );
     });
