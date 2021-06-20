@@ -20,13 +20,11 @@ const Task: React.FC<Tasksprop> = ({ buttonsActive = false }) => {
     const history = useHistory();
     const [tasks, setTasks] = useState<TaskProperties[]>([])
     const concluirTask = (index) => {
-        if (!tasks[index].complete) {
-            patchTask(index).then((e) => {
-                const arr = Array.from(tasks);
-                arr[index].complete = true;
-                setTasks(arr);
-            }).catch((err) => console.error(err))
-        }
+        patchTask(index).then((e) => {
+            const arr = Array.from(tasks);
+            arr[index].complete = true;
+            setTasks(arr);
+        }).catch((err) => console.error(err))
     }
     useEffect(() => {
         getTasks()
@@ -52,9 +50,9 @@ const Task: React.FC<Tasksprop> = ({ buttonsActive = false }) => {
                         date={date}
                         complete={complete}
                     >
-                        {!buttonsActive && (
+                        {buttonsActive && (
                             <ButtonContainer>
-                                <Button img={concluir} handleChange={() => { concluirTask(id) }} />
+                                {!complete && <Button img={concluir} handleChange={() => { concluirTask(id) }} />}
                                 <Button img={excluir} handleChange={() => { }} />
                             </ButtonContainer>)}
                     </ItemList>

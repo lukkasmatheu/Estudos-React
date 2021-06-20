@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Main, Footer} from './styles';
+import React, { useEffect, useState } from 'react';
+import { Main, Footer } from './styles';
 import MenuCards from '../../Components/MenuCards';
 
 import tarefasConcluidas from '../../assets/concluir.svg';
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
                     description={'Link para pagina de listagem de tarefas'}
                 />
                 <MenuCards
-                    to={'/'}
+                    to={'/edit'}
                     title={'Editar Tarefas'}
                     image={editTask}
                     description={
