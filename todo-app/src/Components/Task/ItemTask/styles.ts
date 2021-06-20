@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
-export const List = styled.li<{complete?: boolean}>`
+export const List = styled.li<{ complete?: boolean, open?: boolean }>`
     width: 95%;
     list-style: none;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
     margin-top: 10px;
     border-radius: 5px;
+    border: 1px solid #c7cdce;
     text-decoration: none;
     background: ${(props) => (props.complete ? '#28c8289e' : '#e5ece5')};
     overflow-wrap: anywhere;
@@ -20,6 +21,7 @@ export const List = styled.li<{complete?: boolean}>`
         margin: 0;
     }
     .description {
+        ${(props) => (props.open ? 'display:none' : '')};
         padding: 3px 8px;
     }
 `;
@@ -29,8 +31,9 @@ export const Container = styled.div`
     margin: 0;
     align-items: center;
     flex-direction: row;
-    border: 2px solid ${(props) => (props.complete ? '#28c8289e' : '#e5ece5')};
-    border: 5px;
+    justify-content: space-between;
+    border: 2px solid ${(props) => (props.complete ? '#28c8289e' : '#dae0da')};
+    border-radius: 4px;
     background: ${(props) => (props.complete ? '#28c8289e' : '#e5ece5')};
     padding: 3px 8px;
 `;

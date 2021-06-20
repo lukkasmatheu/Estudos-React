@@ -10,7 +10,7 @@
     {
       "task": "pkewkmfkewf",
       "description": "fknkgreklkl",
-      "complete": true,
+      "complete": false,
       "id": 1
     },
     {
@@ -31,13 +31,8 @@
       "task": "tarefa",
       "description": "tarefa",
       "date": "2021-07-22",
-      "complete": false,
+      "complete": true,
       "id": 4
     }
-  ],
-  "total": {
-    "active": 0,
-    "completed": 0,
-    "deleted": 0
-  }
+  ]
 }

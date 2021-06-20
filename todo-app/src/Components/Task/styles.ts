@@ -6,3 +6,9 @@ export const TaskList = styled.ol`
     list-style: none;
     overflow: auto;
 `;
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
