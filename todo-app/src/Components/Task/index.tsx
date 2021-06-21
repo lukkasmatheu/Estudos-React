@@ -1,46 +1,57 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
-import { getTasks, patchTask } from '../../services/api';
+import React, {Suspense, lazy, useEffect, useState} from 'react';
+import {deleteTask, getTasks, patchTask} from '../../services/api';
 
-import { TaskProperties } from '../../models/TaskModel';
-import Button from '../Button'
-import { useHistory } from 'react-router-dom';
+import {TaskProperties} from '../../models/TaskModel';
+import Button from '../Button';
 
-import concluir from '../../assets/concluir.svg'
-import excluir from '../../assets/excluir.svg'
+import concluir from '../../assets/concluir.svg';
+import excluir from '../../assets/excluir.svg';
 
-import { ButtonContainer, TaskList } from './styles';
+import {ButtonContainer, TaskList} from './styles';
 import Loading from '../../Components/Loading';
 
 const ItemList = lazy(() => import('./ItemTask/index'));
+
 interface Tasksprop {
     buttonsActive?: boolean;
 }
 
-const Task: React.FC<Tasksprop> = ({ buttonsActive = false }) => {
-    const history = useHistory();
-    const [tasks, setTasks] = useState<TaskProperties[]>([])
-    const concluirTask = (index) => {
-        patchTask(index).then((e) => {
-            const arr = Array.from(tasks);
-            arr[index].complete = true;
-            setTasks(arr);
-        }).catch((err) => console.error(err))
-    }
+const Task: React.FC<Tasksprop> = ({buttonsActive = false}) => {
+    const [tasks, setTasks] = useState<TaskProperties[]>([]);
+    const concluirTask = (index, id) => {
+        patchTask(id)
+            .then(() => {
+                const arr = Array.from(tasks);
+                arr[index].complete = true;
+                setTasks(arr);
+            })
+            .catch((err) => console.error(err));
+    };
+    const excluirTask = (index, id) => {
+        deleteTask(id)
+            .then(() => {
+                const arr = Array.from(tasks);
+                arr.splice(index, 1);
+                setTasks(arr);
+            })
+            .catch((err) => console.error(err));
+    };
+
     useEffect(() => {
         getTasks()
             .then((res) => {
-                console.log(res.data)
+                console.log(res.data);
                 return res.data;
             })
             .then((res) => {
                 setTasks(res);
             })
-            .catch((err) => console.error(err))
+            .catch((err) => console.error(err));
     }, []);
 
     return (
         <TaskList>
-            {tasks.map(({ id, task, description, date, complete }) => (
+            {tasks.map(({id, task, description, date, complete}, index) => (
                 <Suspense fallback={<Loading />} key={id}>
                     <ItemList
                         key={id}
@@ -48,13 +59,27 @@ const Task: React.FC<Tasksprop> = ({ buttonsActive = false }) => {
                         task={task}
                         description={description}
                         date={date}
-                        complete={complete}
-                    >
+                        complete={complete}>
                         {buttonsActive && (
                             <ButtonContainer>
-                                {!complete && <Button img={concluir} handleChange={() => { concluirTask(id) }} />}
-                                <Button img={excluir} handleChange={() => { }} />
-                            </ButtonContainer>)}
+                                {!complete && (
+                                    <Button
+                                        img={concluir}
+                                        text={'concluir tarefa'}
+                                        handleChange={() => {
+                                            concluirTask(index, id);
+                                        }}
+                                    />
+                                )}
+                                <Button
+                                    img={excluir}
+                                    text={'excluir tarefa'}
+                                    handleChange={() => {
+                                        excluirTask(index, id);
+                                    }}
+                                />
+                            </ButtonContainer>
+                        )}
                     </ItemList>
                 </Suspense>
             ))}

@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, wait, waitFor } from '@testing-library/react';
+import {render, wait, waitFor} from '@testing-library/react';
 
-import axios from 'axios'
-import MockAdapter from 'axios-mock-adapter'
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import {act} from 'react-dom/test-utils';
 
 import Task from './index';
-import { TaskProperties } from '../../models/TaskModel';
-import { act } from 'react-dom/test-utils';
+import {TaskProperties} from '../../models/TaskModel';
 
 const itemList: TaskProperties[] = [
     {
@@ -29,11 +29,19 @@ const apiMock = new MockAdapter(axios);
 
 describe('ItemList', () => {
     beforeEach(() => {
-        apiMock.onGet('http://localhost:5000/task').reply(200, [{ task: "tarefa", description: "tarefa", date: "2021-07-22", complete: true, id: 4 }])
-    })
+        apiMock.onGet('http://localhost:5000/task').reply(200, [
+            {
+                task: 'tarefa',
+                description: 'tarefa',
+                date: '2021-07-22',
+                complete: true,
+                id: 4,
+            },
+        ]);
+    });
 
-    it('should render page home without crash', async () => {
-        const { getAllByText, debug } = render(<Task />);
+    it('should render page tasks without crash', async () => {
+        const {getAllByText, debug} = render(<Task />);
         //TODO: refatorar teste com falso/positivo
         await act(async () => {
             const timer = setTimeout(() => {
@@ -41,6 +49,18 @@ describe('ItemList', () => {
                 expect(taskOne).toBeInTheDocument();
                 debug();
             }, 2000);
-        })
+        });
+    }, 9999);
+
+    it('should render page taks and with buttons', async () => {
+        const {getByTestId, debug} = render(<Task buttonsActive={true} />);
+        //TODO: refatorar teste com falso/positivo
+        await act(async () => {
+            const timer = setTimeout(() => {
+                const taskOne = getByTestId(/excluir/i);
+                expect(taskOne).toBeInTheDocument();
+                debug();
+            }, 2000);
+        });
     }, 9999);
 });

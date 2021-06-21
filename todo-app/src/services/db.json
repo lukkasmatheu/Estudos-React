@@ -1,38 +1,39 @@
 {
   "task": [
     {
-      "id": 0,
-      "task": "title da tarefa",
-      "description": "uma breve descrição da tarefa a ser realizada",
-      "date": "05/06/2021",
-      "complete": false
-    },
-    {
-      "task": "pkewkmfkewf",
-      "description": "fknkgreklkl",
-      "complete": false,
+      "task": "criar listagem de tarefas",
+      "description": "uma descrição qualquer",
+      "date": "2021-06-22",
+      "complete": true,
       "id": 1
     },
     {
-      "task": "wfewgre",
-      "description": "gregee",
-      "date": "2022-05-20",
-      "complete": false,
-      "id": 2
-    },
-    {
-      "task": "compras",
-      "description": "Realizar as compras do mes no mercado \nLista de items\n-arroz\n-macarrão\n-feijão\n-azeitona\n-file de frango \n-carvão\n-coca cola\n-cerveija\n-oleo\n-pimenta\n-molho de tomate\n-frios\n-pão caseiro\n-tempero",
-      "date": "2021-07-23",
-      "complete": false,
+      "task": "wefWEGgeWG",
+      "description": "WEGWEGGWEGWGWE",
+      "date": "2021-06-22",
+      "complete": true,
       "id": 3
     },
     {
-      "task": "tarefa",
-      "description": "tarefa",
-      "date": "2021-07-22",
+      "task": "weEEEEEEEEEE",
+      "description": "EEEEWEEEEEEEEEEEee",
+      "date": "2021-06-17",
       "complete": true,
       "id": 4
+    },
+    {
+      "task": "weEEEEEEEEEEEEEEEEEEE",
+      "description": "EWEEEEEEEEEEEEEEEEEEEEeeeeeeeefEFWWWWWWWWWWWWWWWWWWWWW",
+      "date": "2021-06-25",
+      "complete": false,
+      "id": 6
+    },
+    {
+      "task": "weaffffffffffffffff",
+      "description": "fweaaaaaaaaaaaaaaaaaaaaaaaa",
+      "date": "2021-06-16",
+      "complete": false,
+      "id": 7
     }
   ]
 }

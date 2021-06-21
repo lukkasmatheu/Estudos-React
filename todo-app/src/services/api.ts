@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
-import { TaskProperties } from '../models/TaskModel';
+import axios, {AxiosResponse} from 'axios';
+import {TaskProperties} from '../models/TaskModel';
 
 const path = `http://localhost:5000/task`;
 
@@ -16,11 +16,15 @@ export const postTask = (
     description: string,
     date: string,
 ): Promise<AxiosResponse<TaskResponse>> => {
-    return axios.post(path, { task, description, date, complete: false });
+    return axios.post(path, {task, description, date, complete: false});
 };
 
-export const patchTask = (
-    id: number
+export const patchTask = (id: number): Promise<AxiosResponse<TaskResponse>> => {
+    return axios.patch(path + `/${id}`, {complete: true});
+};
+
+export const deleteTask = (
+    id: number,
 ): Promise<AxiosResponse<TaskResponse>> => {
-    return axios.patch(path + `/${id}`, { complete: true });
+    return axios.delete(path + `/${id}`);
 };

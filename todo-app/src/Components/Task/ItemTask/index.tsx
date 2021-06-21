@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-import { TaskProperties } from '../../../models/TaskModel';
+import {TaskProperties} from '../../../models/TaskModel';
 
-import { List, Container } from './styles';
+import {List, Container} from './styles';
 
 const ItemList: React.FC<TaskProperties> = ({
     id,
@@ -10,12 +10,16 @@ const ItemList: React.FC<TaskProperties> = ({
     description,
     date,
     complete,
-    children
+    children,
 }) => {
     const [open, setOpen] = useState<boolean>(true);
     return (
         <List complete={complete} open={open} id={id}>
-            <Container complete={complete} onClick={() => { setOpen(!open) }}>
+            <Container
+                complete={complete}
+                onClick={() => {
+                    setOpen(!open);
+                }}>
                 <div className={'task'}>
                     <h4>Tarefa:</h4>
                     <p>{task}</p>
