@@ -1,12 +1,12 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Home from './index';
-import {MemoryRouter} from 'react-router';
+import { MemoryRouter } from 'react-router';
 
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import {act} from 'react-dom/test-utils';
-import {TaskProperties} from '../../models/TaskModel';
+import { act } from 'react-dom/test-utils';
+import { TaskProperties } from '../../models/TaskModel';
 
 const apiMock = new MockAdapter(axios);
 
@@ -37,5 +37,5 @@ describe('Home', () => {
                 <Home />
             </MemoryRouter>,
         );
-    });
+    }, 9999);
 });
