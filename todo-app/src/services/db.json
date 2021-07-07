@@ -1,20 +1,6 @@
 {
   "task": [
     {
-      "task": "criar listagem de tarefas",
-      "description": "uma descrição qualquer",
-      "date": "2021-06-22",
-      "complete": true,
-      "id": 1
-    },
-    {
-      "task": "wefWEGgeWG",
-      "description": "WEGWEGGWEGWGWE",
-      "date": "2021-06-22",
-      "complete": true,
-      "id": 3
-    },
-    {
       "task": "weEEEEEEEEEE",
       "description": "EEEEWEEEEEEEEEEEee",
       "date": "2021-06-17",
@@ -29,11 +15,18 @@
       "id": 6
     },
     {
-      "task": "weaffffffffffffffff",
-      "description": "fweaaaaaaaaaaaaaaaaaaaaaaaa",
+      "task": "Isto é uma tarefa",
+      "description": "Realizar a tarefa \nisso é uma descrição da tarefa a ser \nrealizada",
       "date": "2021-06-16",
       "complete": false,
-      "id": 7
+      "id": 8
+    },
+    {
+      "task": "Lucas",
+      "description": "uma descrição",
+      "date": "2021-06-24",
+      "complete": false,
+      "id": 9
     }
   ]
 }

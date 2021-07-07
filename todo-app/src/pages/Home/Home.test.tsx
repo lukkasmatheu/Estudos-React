@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import {render} from '@testing-library/react';
 import Home from './index';
-import { MemoryRouter } from 'react-router';
+import {Router} from 'react-router';
 
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { act } from 'react-dom/test-utils';
-import { TaskProperties } from '../../models/TaskModel';
+import {createBrowserHistory} from 'history';
+import {TaskProperties} from '../../models/TaskModel';
 
 const apiMock = new MockAdapter(axios);
 
@@ -27,15 +27,17 @@ const itemList: TaskProperties[] = [
     },
 ];
 
+const history = createBrowserHistory();
+
 describe('Home', () => {
     beforeEach(() => {
         apiMock.onGet('http://localhost:5000/task').reply(200, [...itemList]);
     });
     it('should render page home without crash', () => {
         render(
-            <MemoryRouter>
+            <Router history={history}>
                 <Home />
-            </MemoryRouter>,
+            </Router>,
         );
     }, 9999);
 });

@@ -1,11 +1,13 @@
 const express = require('express');
 
-const app = express()
+const app = express();
 
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }))
 
-require('./controller/TaskController')
+require('./controller/TaskController')(app);
 
 
-app.listen(5000);
+app.listen(5000,() => {
+    console.log("Node app is running on port 5000");
+});
