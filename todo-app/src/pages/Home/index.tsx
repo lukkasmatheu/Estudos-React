@@ -8,13 +8,30 @@ import createTask from '../../assets/task.svg';
 import editTask from '../../assets/lista-de-tarefas.svg';
 import listTask from '../../assets/lista-de-controle.svg';
 import BoxConteiner from '../../Components/Conteiner';
+import {getTasks} from '../../services/api';
 
 const Home: React.FC = () => {
+    const [completeTask, setCompleteTask] = useState<number>(0);
+    const [taskNumber, setTaskNumber] = useState<number>(0);
     useEffect(() => {
-        console.log('renderizando page');
+        getTasks()
+            .then((res) => {
+                console.log(res.data);
+                return res.data;
+            })
+            .then((res) => {
+                setTaskNumber(res.length);
+                let total = 0;
+                for (const task of res) {
+                    if (task.complete) {
+                        total++;
+                    }
+                }
+                setCompleteTask(total);
+            })
+            .catch((err) => console.error(err));
     }, []);
 
-    const [tasks] = useState<number>(0);
     return (
         <BoxConteiner header={'Gerenciador de Tarefas'}>
             <Main>
@@ -31,7 +48,7 @@ const Home: React.FC = () => {
                     description={'Link para pagina de listagem de tarefas'}
                 />
                 <MenuCards
-                    to={'/'}
+                    to={'/edit'}
                     title={'Editar Tarefas'}
                     image={editTask}
                     description={
@@ -46,14 +63,14 @@ const Home: React.FC = () => {
                             src={tarefas}
                             alt="Alerta de quantidade de tarefas criadas"
                         />
-                        {tasks} - <b> Tarefas </b>{' '}
+                        {taskNumber} - <b> Tarefas </b>{' '}
                     </span>
                     <span>
                         <img
                             src={tarefasConcluidas}
                             alt="Alerta de quantidade de tarefas concluidas"
                         />
-                        {tasks} - <b>Tarefas Prontas </b>{' '}
+                        {completeTask} - <b>Tarefas Prontas </b>{' '}
                     </span>
                 </section>
             </Footer>

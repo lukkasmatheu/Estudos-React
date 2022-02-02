@@ -1,13 +1,15 @@
 import React from 'react';
 import BoxConteiner from '../../Components/Conteiner';
 import Task from '../../Components/Task';
-import Loading from '../../Components/Loading';
-const ListTask: React.FC = () => {
+
+import Modal from '../../Components/Modal';
+
+const EditTask: React.FC = () => {
     return (
         <BoxConteiner header={'Listar Tarefas'}>
-            <Task />
+            <Task buttonsActive={true} />
         </BoxConteiner>
     );
 };
 
-export default ListTask;
+export default EditTask;

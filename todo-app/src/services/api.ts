@@ -18,3 +18,13 @@ export const postTask = (
 ): Promise<AxiosResponse<TaskResponse>> => {
     return axios.post(path, {task, description, date, complete: false});
 };
+
+export const patchTask = (id: number): Promise<AxiosResponse<TaskResponse>> => {
+    return axios.patch(path + `/${id}`, {complete: true});
+};
+
+export const deleteTask = (
+    id: number,
+): Promise<AxiosResponse<TaskResponse>> => {
+    return axios.delete(path + `/${id}`);
+};

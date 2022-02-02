@@ -1,6 +1,10 @@
 import React from 'react';
-import {render} from '@testing-library/react';
-import ItemList from './index';
+import {render, wait, waitFor} from '@testing-library/react';
+
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import {act} from 'react-dom/test-utils';
+
 import Task from './index';
 import {TaskProperties} from '../../models/TaskModel';
 
@@ -21,14 +25,42 @@ const itemList: TaskProperties[] = [
     },
 ];
 
+const apiMock = new MockAdapter(axios);
+
 describe('ItemList', () => {
-    it('should render page home without crash', () => {
-        const {getAllByText} = render(<Task tasks={itemList} />);
-
-        const taskOne = getAllByText(/testes/i);
-        const taskTwo = getAllByText(/testes1/i);
-
-        expect(taskOne).toBeTruthy();
-        expect(taskTwo).toBeTruthy();
+    beforeEach(() => {
+        apiMock.onGet('http://localhost:5000/task').reply(200, [
+            {
+                task: 'tarefa',
+                description: 'tarefa',
+                date: '2021-07-22',
+                complete: true,
+                id: 4,
+            },
+        ]);
     });
+
+    it('should render page tasks without crash', async () => {
+        const {getAllByText, debug} = render(<Task />);
+        //TODO: refatorar teste com falso/positivo
+        await act(async () => {
+            const timer = setTimeout(() => {
+                const taskOne = getAllByText(/tarefa/i);
+                expect(taskOne).toBeInTheDocument();
+                debug();
+            }, 2000);
+        });
+    }, 9999);
+
+    it('should render page taks and with buttons', async () => {
+        const {getByTestId, debug} = render(<Task buttonsActive={true} />);
+        //TODO: refatorar teste com falso/positivo
+        await act(async () => {
+            const timer = setTimeout(() => {
+                const taskOne = getByTestId(/excluir/i);
+                expect(taskOne).toBeInTheDocument();
+                debug();
+            }, 2000);
+        });
+    }, 9999);
 });
